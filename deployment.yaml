@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minha-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minha-app
+  template:
+    metadata:
+      labels:
+        app: minha-app
+    spec:
+      containers:
+      - name: minha-app
+        image: minha-app:latest
+        imagePullPolicy: IfNotPresent  # Isso garante que ele use a imagem que você buildou
+        ports:
+        - containerPort: 8080
