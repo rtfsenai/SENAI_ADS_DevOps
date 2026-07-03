@@ -1,0 +1,11 @@
+groups:
+  - name: example
+    rules:
+      - alert: InstanceDown
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Instancia fora do ar"
+          description: "O serviço monitorado está inativo há mais de 1 minuto."
